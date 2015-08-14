@@ -1,0 +1,75 @@
+.disclose-wrap {
+	position: fixed;
+}
+.disclose-wrap.topleft {
+	top: 30px;
+	left: 30px;
+}
+.disclose-wrap.topright {
+	top: 30px;
+	right: 30px;
+}
+.disclose-wrap.bottomleft {
+	left: 30px;
+	bottom: 30px;
+}
+.disclose-wrap.bottomright {
+	right: 30px;
+	bottom: 30px;
+}
+
+.disclose-notification {
+	position: absolute;
+	width: 300px;
+	padding: 9px 24px;
+	border: 2px solid #ccc;
+	border-radius: 3px;
+	background: #fff;
+	transform: translateX(100%);
+	transition: bottom .1s ease-out, opacity .1s ease-out, transform .1s ease-out;
+	opacity: 0;
+}
+.disclose-notification.is-shown {
+	transform: translateX(0);
+	opacity: 1;
+}
+.disclose-notification-sticky {
+	padding-right: 57px;
+}
+.disclose-notification .disclose-btn-close {
+	position: absolute;
+	top: 9px;
+	right: 9px;
+	width: 24px;
+	height: 24px;
+	border: 0;
+	background: rgba(255, 0, 0, .5);
+}
+.disclose-notification-error {
+	border-color: #de9186;
+	color: #de9186;
+}
+.disclose-notification-info {
+	border-color: #66afe9;
+	color: #66afe9;
+}
+.disclose-notification-success {
+	border-color: #79c174;
+	color: #79c174;
+}
+.disclose-notification-warning {
+	border-color: yellow;
+}
+
+.disclose-wrap.topleft .disclose-notification {
+	left: 0;
+}
+.disclose-wrap.topright .disclose-notification {
+	right: 0;
+}
+.disclose-wrap.bottomleft .disclose-notification {
+	left: 0;
+}
+.disclose-wrap.bottomright .disclose-notification {
+	right: 0;
+}

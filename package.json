@@ -1,0 +1,17 @@
+{
+  "name": "disclose.js",
+  "version": "0.1.0",
+  "description": "A small library that helps you with notifications",
+  "author": "chielkunkels",
+  "homepage": "https://github.com/chielkunkels/disclose.js",
+  "bugs": "https://github.com/chielkunkels/disclose.js/issues",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/chielkunkels/disclose.js.git"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "domhelpers": "^0.1.0",
+    "mout": "^0.11.0"
+  }
+}
