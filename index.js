@@ -150,13 +150,13 @@ Disclose.prototype.reposition = function(){
 	}
 };
 
-/**
- * Show a notification of a specific type
- *
- * @param {String} message
- * @param {Object} options
- */
 [ 'success', 'info', 'error', 'warning' ].forEach(function(type){
+	/**
+	 * Show a notification of a specific type
+	 *
+	 * @param {String} message
+	 * @param {Object} options
+	 */
 	Disclose.prototype[type] = function(message, options){
 		return this.notify(type, message, options);
 	};
