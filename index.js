@@ -33,17 +33,16 @@ Disclose.prototype._build = function(){
 	if (this.wrap) return;
 
 	var wrap = document.createElement('div');
-	wrap.classList.add('disclose-wrap');
-	wrap.classList.add(this.options.anchor);
+	wrap.classList.add('disclose', 'disclose--pos-' + this.options.anchor);
 	document.body.appendChild(wrap);
 
 	var self = this;
 	wrap.addEventListener('click', function(e){
 		e.preventDefault();
-		var btn = getClosest(e.target, '.disclose-btn-close');
+		var btn = getClosest(e.target, '.disclose__act-close');
 		if (!btn) return;
 
-		var el = getClosest(btn, '.disclose-notification');
+		var el = getClosest(btn, '.disclose__notification');
 		var index = self.notifications.indexOf(el);
 		self.clearOne(index);
 	});
@@ -65,8 +64,7 @@ Disclose.prototype.notify = function(type, message, options){
 
 	var self = this;
 	var wrap = document.createElement('div');
-	wrap.classList.add('disclose-notification');
-	wrap.classList.add('disclose-notification-' + type);
+	wrap.classList.add('disclose__notification', 'disclose--' + type);
 
 	wrap.textContent = message;
 
@@ -89,9 +87,9 @@ Disclose.prototype.notify = function(type, message, options){
 	} else{
 		var btn = document.createElement('button');
 		btn.type = 'button';
-		btn.classList.add('disclose-btn-close');
+		btn.classList.add('disclose__act-close');
 		wrap.appendChild(btn);
-		wrap.classList.add('disclose-notification-sticky');
+		wrap.classList.add('disclose--sticky');
 	}
 
 	this.wrap.appendChild(wrap);
@@ -100,7 +98,7 @@ Disclose.prototype.notify = function(type, message, options){
 	this.heights.push(rect.bottom - rect.top);
 	this.notifications.push(wrap);
 
-	wrap.classList.add('is-shown');
+	wrap.classList.add('disclose--shown');
 
 	return this.notifications.length - 1;
 };
@@ -125,7 +123,7 @@ Disclose.prototype.clearOne = function(index){
 		}, 1);
 
 		el.addEventListener('transitionend', transitionEvent);
-		el.classList.remove('is-shown');
+		el.classList.remove('disclose--shown');
 	} else{
 		this.wrap.removeChild(el);
 	}

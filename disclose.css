@@ -1,24 +1,37 @@
-.disclose-wrap {
+.disclose {
 	position: fixed;
 }
-.disclose-wrap.topleft {
+
+/** wrap position */
+.disclose--pos-topleft {
 	top: 30px;
 	left: 30px;
 }
-.disclose-wrap.topright {
+.disclose--pos-topright {
 	top: 30px;
 	right: 30px;
 }
-.disclose-wrap.bottomleft {
+.disclose--pos-bottomleft {
 	left: 30px;
 	bottom: 30px;
 }
-.disclose-wrap.bottomright {
+.disclose--pos-bottomright {
 	right: 30px;
 	bottom: 30px;
 }
 
-.disclose-notification {
+/** notification position */
+.disclose--pos-topleft .disclose__notification,
+.disclose--pos-bottomleft .disclose__notification {
+	left: 0;
+}
+.disclose--pos-topright .disclose__notification,
+.disclose--pos-bottomright .disclose__notification {
+	right: 0;
+}
+
+/** notification */
+.disclose__notification {
 	position: absolute;
 	width: 300px;
 	padding: 9px 24px;
@@ -26,17 +39,10 @@
 	border-radius: 3px;
 	background: #fff;
 	transform: translateX(100%);
-	transition: bottom .1s ease-out, opacity .1s ease-out, transform .1s ease-out;
+	transition: bottom .25s ease-out, opacity .25s ease-out, transform .25s ease-out;
 	opacity: 0;
 }
-.disclose-notification.is-shown {
-	transform: translateX(0);
-	opacity: 1;
-}
-.disclose-notification-sticky {
-	padding-right: 57px;
-}
-.disclose-notification .disclose-btn-close {
+.disclose__notification .disclose__act-close {
 	position: absolute;
 	top: 9px;
 	right: 9px;
@@ -45,31 +51,27 @@
 	border: 0;
 	background: rgba(255, 0, 0, .5);
 }
-.disclose-notification-error {
+
+/** notification states */
+.disclose__notification.disclose--shown {
+	transform: translateX(0);
+	opacity: 1;
+}
+.disclose__notification.disclose--sticky {
+	padding-right: 57px;
+}
+.disclose--error {
 	border-color: #de9186;
 	color: #de9186;
 }
-.disclose-notification-info {
+.disclose--info {
 	border-color: #66afe9;
 	color: #66afe9;
 }
-.disclose-notification-success {
+.disclose--success {
 	border-color: #79c174;
 	color: #79c174;
 }
-.disclose-notification-warning {
+.disclose--warning {
 	border-color: yellow;
-}
-
-.disclose-wrap.topleft .disclose-notification {
-	left: 0;
-}
-.disclose-wrap.topright .disclose-notification {
-	right: 0;
-}
-.disclose-wrap.bottomleft .disclose-notification {
-	left: 0;
-}
-.disclose-wrap.bottomright .disclose-notification {
-	right: 0;
 }
